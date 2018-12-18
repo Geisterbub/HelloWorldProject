@@ -31,7 +31,7 @@ public class Variable {
 		shortVar = 9 / 4;
 		System.out.println(shortVar);
 		//
-		System.out.println(9/4.0);
+		System.out.println(9 / 4.0);
 		//
 		//
 		int intVar;
@@ -44,13 +44,11 @@ public class Variable {
 		long longVar;
 		System.out.println(Long.MIN_VALUE);
 		System.out.println(Long.MAX_VALUE);
-		longVar = 1000*1000*1000*1000;
+		longVar = 1000 * 1000 * 1000 * 1000;
 		System.out.println(longVar);
 		//
-		System.out.println(System.currentTimeMillis()/1000/60/60/24/365);
-		
-		
-		
+		System.out.println(System.currentTimeMillis() / 1000 / 60 / 60 / 24 / 365);
+
 	}
 
 }
