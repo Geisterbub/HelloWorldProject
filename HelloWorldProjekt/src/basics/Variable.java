@@ -49,7 +49,7 @@ public class Variable {
 		//
 		System.out.println(System.currentTimeMillis()/1000/60/60/24/365);
 		
-		,
+		
 		
 		
 	}
