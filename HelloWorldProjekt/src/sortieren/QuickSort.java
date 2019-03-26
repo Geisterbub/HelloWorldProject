@@ -10,6 +10,7 @@ public class QuickSort {
 		for (int i : zahlen)
 			System.out.println(i);
 
+		System.out.println("----------------------------------");
 		
 		quicksort(0, zahlen.length - 1);
 		for (int i : zahlen)
@@ -38,16 +39,16 @@ public class QuickSort {
 		int pivot = zahlen[rechts];
 
 		do {
-			while (links < rechts - 1 && links < zahlen[rechts]) {
+			while (links < j && zahlen[i] < zahlen[rechts]) {
 				i = i + 1;
 			}
 
-			while (rechts - 1 > links && rechts - 1 >= zahlen[rechts]) {
+			while (rechts - 1 > links && zahlen[j] >= zahlen[rechts]) {
 				j = j - 1;
 
 			}
 
-			if (links > rechts) {
+			if (i < j) {
 				int help = zahlen[i];
 				zahlen[i] = zahlen[rechts];
 				zahlen[rechts] = help;
