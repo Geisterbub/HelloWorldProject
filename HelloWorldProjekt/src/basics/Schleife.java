@@ -4,6 +4,7 @@ public class Schleife {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 				// FOR-Schleife
 
 				// 1. variable dekleration & zuweisung
@@ -36,3 +37,19 @@ public class Schleife {
 	}
 
 
+=======
+	    // FOR-Schleife - 3 Teilen
+		// 1. Variablen Init
+		// 2. Bedingung
+		// 3. In/De-Krement
+		for (int i = 0; i < 10; i = i+1) {
+			System.out.println("Zahl ist " + i);
+		}
+		// eine Schleife die von 100-1 zählt
+		// Zahl ist 100
+		// Zahl ist 99
+		// ...
+		// Zahl ist 1
+	}
+}
+>>>>>>> branch 'master' of https://github.com/Geisterbub/HelloWorldProject.git
