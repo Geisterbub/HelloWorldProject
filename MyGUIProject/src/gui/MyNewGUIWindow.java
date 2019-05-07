@@ -29,6 +29,12 @@ public class MyNewGUIWindow {
 	private Label OrtL;
 	private Text OrtTF;
 	private Button btnAbbrechen;
+	private Label vornameout;
+	private Label nachnameout;
+	private Label hausnummerout;
+	private Label PLZout;
+	private Label ortout;
+	private Label straﬂeout;
 
 	/**
 	 * Launch the application.
@@ -78,6 +84,15 @@ public class MyNewGUIWindow {
 				System.out.println(HausnummerTF.getText());
 				System.out.println(PLZTF.getText());
 				System.out.println(OrtTF.getText());
+				//
+				getVornameout().setText(getVornameTF().getText());
+				getNachnameout().setText(getNachnameTF().getText());
+				getStraﬂeout().setText(getStraﬂeTF().getText());
+				getHausnummerout().setText(getHausnummerTF().getText());
+				getPLZout().setText(getPLZTF().getText());
+				getOrtout().setText(getOrtTF().getText());
+				
+			
 				
 			}
 		});
@@ -85,42 +100,42 @@ public class MyNewGUIWindow {
 		btnNewButton.setText("MyButton");
 		
 		Label vornameL = new Label(shlFrWindow, SWT.NONE);
-		vornameL.setBounds(54, 146, 70, 15);
+		vornameL.setBounds(54, 143, 83, 21);
 		vornameL.setText("Vorname");
 		
 		vornameTF = new Text(shlFrWindow, SWT.BORDER);
 		vornameTF.setBounds(143, 143, 76, 21);
 		
 		nachnameL = new Label(shlFrWindow, SWT.NONE);
-		nachnameL.setBounds(54, 168, 70, 15);
+		nachnameL.setBounds(54, 168, 83, 18);
 		nachnameL.setText("Nachname");
 		
 		nachnameTF = new Text(shlFrWindow, SWT.BORDER);
-		nachnameTF.setBounds(143, 165, 76, 21);
+		nachnameTF.setBounds(143, 168, 76, 18);
 		
 		StraﬂeL = new Label(shlFrWindow, SWT.NONE);
-		StraﬂeL.setBounds(54, 195, 70, 15);
+		StraﬂeL.setBounds(54, 192, 83, 18);
 		StraﬂeL.setText("Stra\u00DFe");
 		
 		StraﬂeTF = new Text(shlFrWindow, SWT.BORDER);
-		StraﬂeTF.setBounds(143, 189, 76, 21);
+		StraﬂeTF.setBounds(143, 192, 76, 18);
 		
 		HausnummerL = new Label(shlFrWindow, SWT.NONE);
-		HausnummerL.setBounds(54, 216, 75, 15);
+		HausnummerL.setBounds(54, 216, 83, 18);
 		HausnummerL.setText("Hausnummer");
 		
 		HausnummerTF = new Text(shlFrWindow, SWT.BORDER);
-		HausnummerTF.setBounds(143, 213, 76, 21);
+		HausnummerTF.setBounds(143, 216, 76, 18);
 		
 		PLZL = new Label(shlFrWindow, SWT.NONE);
-		PLZL.setBounds(54, 243, 70, 15);
+		PLZL.setBounds(54, 240, 83, 21);
 		PLZL.setText("PLZ");
 		
 		PLZTF = new Text(shlFrWindow, SWT.BORDER);
 		PLZTF.setBounds(143, 240, 76, 21);
 		
 		OrtL = new Label(shlFrWindow, SWT.NONE);
-		OrtL.setBounds(54, 270, 70, 15);
+		OrtL.setBounds(54, 267, 83, 21);
 		OrtL.setText("Ort");
 		
 		OrtTF = new Text(shlFrWindow, SWT.BORDER);
@@ -145,7 +160,61 @@ public class MyNewGUIWindow {
 		});
 		composite.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		composite.setBounds(74, 338, 251, 99);
+		
+		vornameout = new Label(shlFrWindow, SWT.NONE);
+		vornameout.setBounds(264, 143, 75, 21);
+		
+		nachnameout = new Label(shlFrWindow, SWT.NONE);
+		nachnameout.setBounds(264, 168, 75, 18);
+		
+		hausnummerout = new Label(shlFrWindow, SWT.NONE);
+		hausnummerout.setBounds(264, 216, 75, 18);
+		
+		PLZout = new Label(shlFrWindow, SWT.NONE);
+		PLZout.setBounds(264, 240, 75, 21);
+		
+		ortout = new Label(shlFrWindow, SWT.NONE);
+		ortout.setBounds(264, 267, 75, 21);
+		
+		straﬂeout = new Label(shlFrWindow, SWT.NONE);
+		straﬂeout.setBounds(264, 192, 75, 18);
 		shlFrWindow.setTabList(new Control[]{vornameTF, nachnameTF, StraﬂeTF, HausnummerTF, PLZTF, OrtTF, btnNewButton});
 
+	}
+	public Text getVornameTF() {
+		return vornameTF;
+	}
+	public Text getNachnameTF() {
+		return nachnameTF;
+	}
+	public Label getVornameout() {
+		return vornameout;
+	}
+	public Label getNachnameout() {
+		return nachnameout;
+	}
+	public Label getStraﬂeout() {
+		return straﬂeout;
+	}
+	public Label getHausnummerout() {
+		return hausnummerout;
+	}
+	public Label getPLZout() {
+		return PLZout;
+	}
+	public Label getOrtout() {
+		return ortout;
+	}
+	public Text getStraﬂeTF() {
+		return StraﬂeTF;
+	}
+	public Text getHausnummerTF() {
+		return HausnummerTF;
+	}
+	public Text getPLZTF() {
+		return PLZTF;
+	}
+	public Text getOrtTF() {
+		return OrtTF;
 	}
 }
