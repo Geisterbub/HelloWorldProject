@@ -9,6 +9,9 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import data.Person;
+
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.events.MouseMoveListener;
@@ -91,6 +94,28 @@ public class MyNewGUIWindow {
 				getHausnummerout().setText(getHausnummerTF().getText());
 				getPLZout().setText(getPLZTF().getText());
 				getOrtout().setText(getOrtTF().getText());
+				//
+				Person p1;
+				p1 = new Person();
+				p1.setVorname(getVornameTF().getText());
+				p1.setNachname(getNachnameTF().getText());
+				p1.setStraﬂe(getStraﬂeTF().getText());
+				p1.setHausnummer(getHausnummerTF().getText());
+				p1.setPLZ(getPLZTF().getText());
+				p1.setOrt(getOrtTF().getText());
+				//
+				System.out.println(p1);
+				//
+				Person.getListe().add(p1);
+				//
+				System.out.println(Person.getListe());
+				//
+				getVornameTF().setText("");
+				getNachnameTF().setText("");
+				getStraﬂeTF().setText("");
+				getHausnummerTF().setText("");
+				getPLZTF().setText("");
+				getOrtTF().setText("");
 				
 			
 				
