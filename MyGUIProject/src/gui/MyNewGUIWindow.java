@@ -10,6 +10,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import data.Person;
 
 import org.eclipse.swt.widgets.Control;
@@ -203,6 +206,18 @@ public class MyNewGUIWindow {
 		
 		straﬂeout = new Label(shlFrWindow, SWT.NONE);
 		straﬂeout.setBounds(264, 192, 75, 18);
+		
+		Button btnJson = new Button(shlFrWindow, SWT.NONE);
+		btnJson.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+				//
+				System.out.println(gson.toJson(Person.getListe()));
+			}
+		});
+		btnJson.setBounds(384, 85, 75, 25);
+		btnJson.setText("JSON");
 		shlFrWindow.setTabList(new Control[]{vornameTF, nachnameTF, StraﬂeTF, HausnummerTF, PLZTF, OrtTF, btnNewButton});
 
 	}
