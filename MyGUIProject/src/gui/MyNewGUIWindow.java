@@ -3,6 +3,13 @@ package gui;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.activation.FileDataSource;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -41,6 +48,7 @@ public class MyNewGUIWindow {
 	private Label PLZout;
 	private Label ortout;
 	private Label straﬂeout;
+	private Button btnLoad;
 
 	/**
 	 * Launch the application.
@@ -213,14 +221,51 @@ public class MyNewGUIWindow {
 			public void widgetSelected(SelectionEvent e) {
 				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				//
-				System.out.println(gson.toJson(Person.getListe()));
+				//System.out.println(gson.toJson(Person.getListe()));
+				//
+				try {
+					File jsonFile = File.createTempFile("wpfinf-json", "humptydumpty");
+					FileWriter fw = new FileWriter(jsonFile);
+					//
+					gson.toJson(Person.getListe(), fw);
+					//
+					fw.flush();
+					fw.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		btnJson.setBounds(384, 85, 75, 25);
 		btnJson.setText("JSON");
+		
+		btnLoad = new Button(shlFrWindow, SWT.NONE);
+		btnLoad.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				org.eclipse.swt.widgets.FileDialog fdDialog = new org.eclipse.swt.widgets.FileDialog(shlFrWindow, SWT.OPEN);
+				//
+				fdDialog.setFilterExtensions(new String[] {"humptydumpty"});
+				fdDialog.setFilterPath("%TEMP%");
+				//
+				fdDialog.open();
+				
+			
+				
+				
+			}
+		});
+		btnLoad.setBounds(514, 85, 75, 25);
+		btnLoad.setText("LOAD");
 		shlFrWindow.setTabList(new Control[]{vornameTF, nachnameTF, StraﬂeTF, HausnummerTF, PLZTF, OrtTF, btnNewButton});
 
 	}
+	protected FileDialog FileDialog(Shell shlFrWindow2, int open) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public Text getVornameTF() {
 		return vornameTF;
 	}
