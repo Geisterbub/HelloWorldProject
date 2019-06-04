@@ -57,5 +57,11 @@ public class Person {
 	public static ArrayList<Person> getListe() {
 		return liste;
 	}
+	public static void setListe(ArrayList<Person> personenListe) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }

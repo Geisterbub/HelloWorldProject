@@ -5,8 +5,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.activation.FileDataSource;
 
@@ -224,7 +228,7 @@ public class MyNewGUIWindow {
 				//System.out.println(gson.toJson(Person.getListe()));
 				//
 				try {
-					File jsonFile = File.createTempFile("wpfinf-json", "humptydumpty");
+					File jsonFile = File.createTempFile("wpfinf-json", ".humptydumpty");
 					FileWriter fw = new FileWriter(jsonFile);
 					//
 					gson.toJson(Person.getListe(), fw);
@@ -246,22 +250,46 @@ public class MyNewGUIWindow {
 			public void widgetSelected(SelectionEvent e) {
 				org.eclipse.swt.widgets.FileDialog fdDialog = new org.eclipse.swt.widgets.FileDialog(shlFrWindow, SWT.OPEN);
 				//
-				fdDialog.setFilterExtensions(new String[] {"humptydumpty"});
+				fdDialog.setFilterExtensions(new String[] {"*.humptydumpty"});
 				fdDialog.setFilterPath("%TEMP%");
 				//
-				fdDialog.open();
+				String filename = fdDialog.open();
+				//
+				System.out.println(filename);
+				//
+				if (filename != null) {
+					try {
+						FileReader fr = new FileReader(filename);
+						//
+						Gson gson = new GsonBuilder().setPrettyPrinting().create();
+						//
+						Person[] personen = gson.fromJson(fr, Person[].class);
+						//
+						ArrayList<Person> personenListe =
+								new ArrayList<Person>(Arrays.asList(personen));
+						//
+						System.out.println(personenListe);
+						//
+						Person.setListe(personenListe);
+						//
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
 				
 			
 				
 				
 			}
 		});
+		
 		btnLoad.setBounds(514, 85, 75, 25);
 		btnLoad.setText("LOAD");
 		shlFrWindow.setTabList(new Control[]{vornameTF, nachnameTF, StraﬂeTF, HausnummerTF, PLZTF, OrtTF, btnNewButton});
 
 	}
-	protected FileDialog FileDialog(Shell shlFrWindow2, int open) {
+	protected org.eclipse.swt.widgets.FileDialog FileDialog(Shell shlFrWindow2, int open) {
 		// TODO Auto-generated method stub
 		return null;
 	}
